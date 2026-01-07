@@ -1,0 +1,134 @@
+/* Ensure the component takes full width of the Experience Cloud page */
+:host {
+	display: block;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+}
+
+/* Force the lightning-card content to take full width */
+.container lightning-card {
+	width: 100%;
+	/* Remove padding from the card body to allow the grid to touch the edges */
+	--sds-c-card-body-padding-inline: 0;
+	--sds-c-card-body-padding-block: 0;
+}
+
+/* --- GRID LAYOUT --- */
+.cardsGrid {
+	display: grid;
+	/* Default: 2 columns for small screens (Mobile) */
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	padding: 1rem;
+}
+
+/* Tablets (481px+) - 3 Columns */
+@media (min-width: 481px) {
+	.cardsGrid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+}
+
+/* Small Desktop (769px+) - 4 Columns */
+@media (min-width: 769px) {
+	.cardsGrid {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.25rem;
+	}
+}
+
+/* Large Desktop (1025px+) - 5 Columns (Your requested layout) */
+@media (min-width: 1025px) {
+	.cardsGrid {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.5rem;
+	}
+}
+
+/* --- CARD STYLING --- */
+.event-card {
+	display: flex;
+	flex-direction: column;
+	/* Use padding to create the white border around the card content */
+	padding: 0;
+	border-radius: 6px;
+	background-color: white;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Wrapper and Overlay */
+.image-wrapper {
+	position: relative;
+	width: 100%;
+	/* Standard poster aspect ratio 3:4 */
+	aspect-ratio: 3 / 4;
+	overflow: hidden;
+}
+
+.image-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.date-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	/* Dark semi-transparent background */
+	color: white;
+	padding: 0.4rem 0.6rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	border-top-right-radius: 4px;
+}
+
+/* Text Details */
+.details {
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+	/* Tight spacing for text elements */
+}
+
+.details p {
+	margin: 0;
+	line-height: 1.25;
+}
+
+.event-title {
+	font-weight: 700;
+	font-size: 1rem;
+	color: #1a202c;
+	/* Dark text */
+}
+
+.event-category {
+	font-size: 0.85rem;
+	color: #4a5568;
+	/* Medium grey */
+	margin-bottom: 0.25rem;
+}
+
+.event-location,
+.event-price {
+	font-size: 0.8rem;
+	color: #2c3e50;
+	/* Slightly darker grey */;
+	font-weight: 500;
+}

@@ -1,0 +1,71 @@
+<template>
+    <lightning-card title="Event Ticket Registration" icon-name="standard:event">
+        <div class="slds-p-around_medium">
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading Events..." size="medium"></lightning-spinner>
+            </template>
+
+            <template if:false={isLoading}>
+                <lightning-combobox
+                    label="Select Event"
+                    placeholder="Choose an Event"
+                    options={eventOptions}
+                    value={selectedEventId}
+                    onchange={handleEventChange}
+                    class="slds-m-bottom_medium"
+                    required>
+                </lightning-combobox>
+
+                <template if:true={selectedEventId}>
+                    <div class="slds-box slds-theme_shade slds-m-bottom_medium">
+                        <p class="slds-text-heading_small slds-m-bottom_x-small">
+                            Ticket Price:
+                            <lightning-formatted-number value={selectedEventPrice}
+                                format-style="currency"
+                                currency-code="INR"></lightning-formatted-number>
+                        </p>
+                        <lightning-input
+                            label="Number of Tickets"
+                            type="number"
+                            value={ticketQuantity}
+                            onchange={handleQuantityChange}
+                            min="1"
+                            max="10"
+                            required>
+                        </lightning-input>
+                    </div>
+
+                    <div class="slds-box slds-theme_alt-inverse slds-m-bottom_large">
+                        <p class="slds-text-heading_medium">
+                            Total Due:
+                            <span class="slds-text-color_error slds-p-left_small">
+                                <lightning-formatted-number value={totalAmount}
+                                    format-style="currency"
+                                    currency-code="INR"></lightning-formatted-number>
+                            </span>
+                        </p>
+                    </div>
+
+                    <lightning-button
+                        label={paymentButtonLabel}
+                        onclick={handlePayment}
+                        variant="brand"
+                        disabled={isPaymentDisabled}
+                        class="slds-align_absolute-center">
+                    </lightning-button>
+
+                    <lightning-spinner if:true={isProcessingPayment}
+                        alternative-text="Processing Payment"
+                        size="small"></lightning-spinner>
+                </template>
+
+                <template if:false={selectedEventId}>
+                    <div class="slds-text-align_center slds-p-vertical_large slds-text-color_weak">
+                        No active events found or please select an event above to proceed.
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

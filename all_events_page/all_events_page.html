@@ -1,0 +1,45 @@
+<template>
+    <div class="container">
+        <div class="main">
+            </div>
+
+        <lightning-card title="All Events">
+            <template if:false={wiredEventRecords}>
+                <div class="slds-align_absolute-center slds-m-vertical_x-large">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            
+            <template if:true={hasEvents}>
+                <div class="cardsGrid slds-p-around_medium">
+                    <template for:each={wiredEventRecords} for:item="event">
+                        <div key={event.Id} class="event-card">
+                            
+                            <div class="image-wrapper">
+                                <img 
+                                    src={event.ImageSrc}
+                                    alt={event.Name}
+                                    onerror={handleImageError}
+                                />
+                                <div class="date-overlay">
+                                    {event.StartDateFormatted}
+                                </div>
+                            </div>
+
+                            <div class="details">
+                                <p class="event-title">{event.Name}</p>
+                                <p class="event-category">Concerts</p>
+                                <p class="event-location">{event.LocationText}</p>
+                                <p class="event-price">{event.PriceText}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            
+            <template if:false={hasEvents}>
+                <p class="slds-text-align_center slds-p-vertical_medium">No upcoming events found.</p>
+            </template>
+        </lightning-card>
+    </div>
+</template>

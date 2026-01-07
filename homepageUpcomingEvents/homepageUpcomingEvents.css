@@ -1,0 +1,23 @@
+/* homepageUpcomingEvents.css */
+
+.upcoming-events-section {
+    /* Style for the overall section on the homepage */
+    background-color: #f4f6f9; /* Light background for contrast */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.section-title {
+    color: #0070d2; /* Salesforce Blue */
+    font-weight: 700;
+    font-size: 2.25rem; /* Larger font for homepage title */
+    border-bottom: 2px solid #ddd;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem !important;
+}
+
+/* Style for the 'View All Events' button container */
+.view-all-container {
+    margin-top: 2rem;
+}

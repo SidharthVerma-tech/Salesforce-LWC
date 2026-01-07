@@ -1,0 +1,17 @@
+<template>
+    <div class="upcoming-events-section slds-var-p-around_medium">
+        <h1 class="section-title slds-text-heading_large slds-var-m-bottom_large">
+            🎉 Upcoming Events
+        </h1>
+        
+        <c-event-card-list></c-event-card-list>
+
+        <div class="view-all-container slds-align_absolute-center slds-var-m-top_large">
+            <lightning-button 
+                label="View All Events"
+                onclick={navigateToEventsPage}
+                variant="brand"
+            ></lightning-button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Submit a Support Request">
+        <!-- Success Message -->
+        <template if:true={caseId}>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <lightning-icon icon-name="utility:success" alternative-text="Success" size="medium" class="slds-m-bottom_small"></lightning-icon>
+                <h2 class="slds-text-heading_medium slds-text-color_success">Your case has been submitted successfully!</h2>
+                <p class="slds-m-top_small">📄 Case ID: <strong>{caseId}</strong></p>
+            </div>
+        </template>
+
+        <!-- Case Creation Form -->
+        <template if:false={caseId}>
+            <lightning-record-edit-form
+                object-api-name="Case"
+                onsuccess={handleSuccess}
+            >
+                <lightning-input-field field-name="Subject"></lightning-input-field>
+                <lightning-input-field field-name="Description"></lightning-input-field>
+                <lightning-input-field field-name="ContactId" value={userContactId} class="slds-hide"></lightning-input-field>
+                <lightning-input-field field-name="Status" value="New" class="slds-hide"></lightning-input-field>
+
+                <lightning-button type="submit" label="Submit Case" class="slds-m-top_medium"></lightning-button>
+            </lightning-record-edit-form>
+        </template>
+    </lightning-card>
+</template>
