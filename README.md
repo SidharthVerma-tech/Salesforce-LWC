@@ -135,6 +135,9 @@ Upcoming events dashboards
 - Task creation for coordinators
 
 - Automated email notifications
+
+<img width="1890" height="834" alt="image" src="https://github.com/user-attachments/assets/9684c2e7-8ccc-4e02-a4db-a42cd8f19631" />
+
  
 @future methods
 
