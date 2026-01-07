@@ -41,156 +41,101 @@
 - Test Classes & Code Coverage
 <img width="1819" height="858" alt="image" src="https://github.com/user-attachments/assets/07ae3bae-239c-49ce-b0ea-78fb07972de3" />
 
-🧩 Core Features
-📅 Event & Venue Management
+# Core Features
+# Event & Venue Management
 
+- One venue can host multiple events
 
-One venue can host multiple events
+- Prevents double-booking of venues for overlapping time slots
 
-Prevents double-booking of venues for overlapping time slots
+- Automatic capacity enforcement based on venue limits
 
-Automatic capacity enforcement based on venue limits
 
+# Attendee Registration & Ticketing
 
-👥 Attendee Registration & Ticketing
+- Event registration via LWC-based UI
 
+- Ticket quantity selection with real-time pricing
 
-Event registration via LWC-based UI
+- Automatic seat allocation and waitlisting
 
+- Duplicate registration prevention
 
-Ticket quantity selection with real-time pricing
+- Stripe-powered secure payment flow
 
+# Waitlist Automation
 
-Automatic seat allocation and waitlisting
+- Automatically places attendees on waitlist when capacity is full
 
+- Promotes earliest waitlisted attendee when a confirmed registration is canceled
 
-Duplicate registration prevention
+- Implemented using Apex Triggers & Handler Classes
 
+# Speaker Management
 
-Stripe-powered secure payment flow
+- Many-to-many relationship between events and speakers
 
+- Prevents speakers from being assigned to overlapping events
 
+- Automated email reminders 7 days before event using Scheduled Apex
 
-⏳ Waitlist Automation
+# Sponsor Management
 
+- Multiple sponsors per event (junction object model)
 
-Automatically places attendees on waitlist when capacity is full
+- Sponsorship amount tracking
 
+- Total sponsorship aggregation per event
 
-Promotes earliest waitlisted attendee when a confirmed registration is canceled
+# Experience Cloud Portal
 
+- External portal for:
 
-Implemented using Apex Triggers & Handler Classes
+- Attendees
 
+- Speakers
 
+- Sponsors
 
-🎤 Speaker Management
+# Role-based access using Profiles, Permission Sets, and OWD
 
-
-Many-to-many relationship between events and speakers
-
-
-Prevents speakers from being assigned to overlapping events
-
-
-Automated email reminders 7 days before event using Scheduled Apex
-
-
-
-💼 Sponsor Management
-
-
-Multiple sponsors per event (junction object model)
-
-
-Sponsorship amount tracking
-
-
-Total sponsorship aggregation per event
-
-
-
-🌐 Experience Cloud Portal
-
-
-External portal for:
-
-
-Attendees
-
-
-Speakers
-
-
-Sponsors
-
-
-
-
-Role-based access using Profiles, Permission Sets, and OWD
-
-
-Knowledge-based FAQs integrated into Support pages
-
-
-
-📊 Reports & Dashboards
-
+# Reports & Dashboards
 
 Attendees per event and event type
 
-
 Seats filled vs capacity
-
 
 Revenue and sponsorship tracking
 
-
 Upcoming events dashboards
 
+<img width="1261" height="537" alt="image" src="https://github.com/user-attachments/assets/4f634eae-41d4-46ae-b200-808361cc2a82" />
 
 
-🔐 Security & Access Control
+# Security & Access Control
 
+- Organization-Wide Defaults (OWD) configured per object
 
-Organization-Wide Defaults (OWD) configured per object
+- Profile-based and Permission Set–based access
 
+- Field-Level Security for sensitive data (emails, phone numbers, payment info)
 
-Profile-based and Permission Set–based access
+- Experience Cloud user access restrictions
 
+# Automation & Notifications
 
-Field-Level Security for sensitive data (emails, phone numbers, payment info)
+- Scheduled Apex
 
+- Speaker reminders (7 days before event)
 
-Experience Cloud user access restrictions
+# Flows
 
+- Registration validation
 
+- Task creation for coordinators
 
-⚙️ Automation & Notifications
-
-
-Scheduled Apex
-
-
-Speaker reminders (7 days before event)
-
-
-
-
-Flows
-
-
-Registration validation
-
-
-Task creation for coordinators
-
-
-Automated email notifications
-
-
-
-
+- Automated email notifications
+ 
 @future methods
 
 
